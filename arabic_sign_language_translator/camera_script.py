@@ -8,7 +8,7 @@ from openpyxl import load_workbook
 from collections import deque
 
 def main_script():
-    model = keras.models.load_model('100_labels_model_96x96_30_frames.keras')  # 🔥 Update this to your model path
+    model = keras.models.load_model('/Users/fayadh/code/SaadAlshahrani/arabic-sign-language-translator/arabic_sign_language_translator/100_labels_model_96x96_30_frames.keras')  # 🔥 Update this to your model path
 
     def load_label_map(excel_path):
         wb = load_workbook(excel_path)
@@ -21,17 +21,17 @@ def main_script():
 
         label_map = {sid: idx for idx, sid in enumerate(sign_ids)}
         signid_map = {idx: sid for idx, sid in enumerate(sign_ids)}
-        
+
         return label_map, signid_map
 
     # Usage
-    label_map, signid_map = load_label_map("KARSL-100_Labels.xlsx")
+    label_map, signid_map = load_label_map("/Users/fayadh/code/SaadAlshahrani/arabic-sign-language-translator/arabic_sign_language_translator/KARSL-100_Labels.xlsx")
 
     # Parameters
     input_size = (96, 96)  # Match your model input size
     max_frames = 30        # Number of frames the model expects
     frame_count = 0
-    predict_every_n_frames = 15  
+    predict_every_n_frames = 15
     last_pred_label = ""
     last_confidence = 0.0
 
@@ -68,7 +68,7 @@ def main_script():
         if last_pred_label:
             cv2.putText(frame, f"{last_pred_label} ({last_confidence:.2f})", (10, 30),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-            
+
         # Show the frame
         cv2.imshow('Sign Language Prediction', frame)
 
