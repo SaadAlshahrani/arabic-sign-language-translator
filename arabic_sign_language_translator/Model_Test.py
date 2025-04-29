@@ -114,6 +114,19 @@ with st.sidebar.title("ASLT"):
     )
     st.sidebar.markdown("---")
 
+# st.sidebar.title("Navigation")
+# page = st.sidebar.radio("Go to", ["🏠 Home", "🈲 Translator", "⚙️ Settings"])
+
+# if page == "🏠 Home":
+#     from Pages import Home
+#     Home.app()
+# elif page == "🈲 Translator":
+#     from Pages import translator
+#     translator.app()
+# elif page == "⚙️ Settings":
+#     from Pages import settings
+#     settings.app()
+
 with st.sidebar.expander("Settings ⚙️", expanded=True):
     st.header("Edit The Frames")
     predict_every_n_frames = st.slider("Prediction frequency ", 1, 120, 30)

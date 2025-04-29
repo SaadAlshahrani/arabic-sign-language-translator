@@ -2,7 +2,20 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import time
 
-st.set_page_config(page_title="ASLT", page_icon="🚀", layout="wide")
+st.set_page_config(
+    page_title="ASLT",
+    page_icon="🚀",
+    layout="wide"
+    )
+
+def app():
+    selected_page = st.sidebar.radio("Navigate", ["Home", "Projects", "Team Members"])
+    if selected_page == "Home":
+        st.experimental_set_query_params(page="home")
+    elif selected_page == "Projects":
+        st.experimental_set_query_params(page="projects")
+    elif selected_page == "Team Members":
+        st.experimental_set_query_params(page="team_members")
 
 # Custom CSS to make it look even better
 st.markdown("""
