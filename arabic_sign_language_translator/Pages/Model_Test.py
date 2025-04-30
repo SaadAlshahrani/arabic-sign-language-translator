@@ -247,15 +247,15 @@ if st.session_state.camera_running:
             st.session_state.prediction = signid_map[pred_class]
             st.session_state.confidence = np.max(preds)
 
-        # Display prediction on frame
-        if st.session_state.prediction:
-            cv2.putText(frame, f"{st.session_state.prediction}", (20, 50),
-                        cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 200, 0), 3)
-            cv2.putText(frame, f"Confidence: {st.session_state.confidence:.2f}", (20, 100),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 180, 0), 2)
+        # # Display prediction on frame
+        # if st.session_state.prediction:
+        #     cv2.putText(frame, f"{st.session_state.prediction}", (20, 50),
+        #                 cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 200, 0), 3)
+        #     cv2.putText(frame, f"Confidence: {st.session_state.confidence:.2f}", (20, 100),
+        #                 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 180, 0), 2)
 
-            # Speak the prediction if it's a new one
-            speak_prediction(st.session_state.prediction,key=str(st.session_state.prediction))
+        #     # Speak the prediction if it's a new one
+        #     speak_prediction(st.session_state.prediction,key=str(st.session_state.prediction))
 
         # Display in Streamlit with modern styling
         with video_placeholder.container():
