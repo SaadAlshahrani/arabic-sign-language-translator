@@ -75,32 +75,6 @@ if selected == "ℹ️ About":
     """)
 
     st.markdown("---")
-    st.title("""
-    📊 Statistics :
-    """)
-    st.markdown("""Statistic from APD shows percentage of disabled people in Saudi Arabia""")
-    st.image(
-        "Pictures/Pic1.png",
-        caption="Statistic from APD shows percentage of disabled people in Saudi Arabia",
-        use_container_width=True,
-        width=300
-    )
-    st.markdown("---")
-    st.markdown("""picture showing each disability by numbers in Saudi Arabia""")
-    st.image(
-        "Pictures/Pic2.png",
-        caption="picture showing each disability by numbers in Saudi Arabia",
-        use_container_width=True,
-        width=300
-    )
-    st.markdown("---")
-    st.markdown("""Our Focus is on the deaf community""")
-    st.image(
-        "Pictures/Pic3.png",
-        caption="Our Focus is on the deaf community",
-        use_container_width=True,
-        width=300
-    )
 
     st.markdown("""
     ### 🔎 Project Overview:
@@ -110,6 +84,33 @@ if selected == "ℹ️ About":
 
     This project represents a meaningful step toward leveraging technology to promote social equity, break down communication barriers, and support the empowerment of the deaf and hard-of-hearing community across the Arabic-speaking world.
     """)
+    st.markdown("---")
+    st.title("""
+    📊 Statistics :
+    """)
+    st.markdown("<h2 style='font-size:24px;'>Statistic from APD shows percentage of disabled people in Saudi Arabia</h2>", unsafe_allow_html=True)
+    st.image(
+        "Pictures/Pic1.png",
+        caption="Statistic from APD shows percentage of disabled people in Saudi Arabia",
+        use_container_width=True,
+        width=300
+    )
+    st.markdown("---")
+    st.markdown("<h2 style='font-size:28px;'>Picture showing each disability by numbers in Saudi Arabia</h2>", unsafe_allow_html=True)
+    st.image(
+        "Pictures/Pic2.png",
+        caption="picture showing each disability by numbers in Saudi Arabia",
+        use_container_width=True,
+        width=300
+    )
+    st.markdown("---")
+    st.markdown("<h1 style='font-size:36px;'>Our Focus is on the deaf community</h1>", unsafe_allow_html=True)
+    st.image(
+        "Pictures/Pic3.png",
+        caption="Our Focus is on the deaf community",
+        use_container_width=True,
+        width=300
+    )
 
     st.markdown("---")
     st.markdown("""
