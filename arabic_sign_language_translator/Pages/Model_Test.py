@@ -101,13 +101,17 @@ st.markdown(
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+    .image-container {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
 #-----------------------------------Sidebar-------------------------------------
-
 with st.sidebar.title("ASLT"):
     st.markdown(
         """
@@ -155,13 +159,19 @@ with st.sidebar.expander("Choose Language 🪄", expanded=True):
         """, unsafe_allow_html=True)
 
 #--------------------------------Main page--------------------------------------
+col1, col2 = st.columns([1,4])
+with col1:
+    st.image("Pictures/LewagonxSDA.png")
+with col2:
+    st.markdown("---")
+
 st.markdown("<div class='Main-Title'>Arabic Sign Language Translator </div>" , unsafe_allow_html=True)
 st.markdown("---")
 
 st.markdown('<p class="">Welcome to the Arabic Sign Language Translator 🤟🏻🕵🏻‍♂️!</p>', unsafe_allow_html=True)
 
 
-#-----------------------------------Camera Control--------------------------------
+#-----------------------------------Camera Control------------------------------
 video_placeholder = st.empty()
 prediction_placeholder = st.empty()
 

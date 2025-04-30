@@ -64,6 +64,12 @@ selected = option_menu(
 # Page content
 #--------------------------------Home----------------------------------
 if selected == "ℹ️ About":
+    col1, col2 = st.columns([1,4])
+    with col1:
+        st.image("Pictures/LewagonxSDA.png")
+    with col2:
+        st.markdown("---")
+
     st.title("🤖 Real-Time Arabic Sign Language Translator")
     st.markdown("---")
 
@@ -204,7 +210,11 @@ if selected == "ℹ️ About":
 #     st.write("Here are some cool things I'm working on:")
 #--------------------------------Contact----------------------------------
 elif selected == "👥 Team Members":
-
+    col1, col2 = st.columns([1,4])
+    with col1:
+        st.image("Pictures/LewagonxSDA.png")
+    with col2:
+        st.markdown("---")
 
     st.title("The People Behind the Project")
     st.markdown("---")
