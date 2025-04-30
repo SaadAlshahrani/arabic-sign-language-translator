@@ -1,6 +1,3 @@
-# $DEL_BEGIN
-
-# ####### 👇 SIMPLE SOLUTION (x86 and M1) 👇 ########
 FROM python:3.10.6-buster
 
 WORKDIR /prod
