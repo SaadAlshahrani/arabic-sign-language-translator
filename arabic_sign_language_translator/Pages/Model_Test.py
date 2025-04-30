@@ -136,7 +136,7 @@ with st.sidebar.expander("Settings ⚙️", expanded=True):
 
 with st.sidebar.expander("Choose Language 🪄", expanded=True):
     lang = st.selectbox("", options=langs)
-    speak = st.button("Speak it out!")
+    speak = st.button("Speak it out!" , key="speak", use_container_width=True)
     st.sidebar.markdown("---")
 
 with st.sidebar.expander("Text to Speech", expanded=True):
@@ -216,8 +216,9 @@ with col2:
         st.write("Camera is OFF")
 
 
-def speak_prediction(prediction, lang='en'):
-    text_to_speech(text=prediction, language=lang)
+def speak_prediction(prediction, lang='en', key="1"):
+    text_to_speech(text=prediction, language=lang,key=key+str(np.random.randint(10000000))
+                   )
 
 # Main logic to process webcam feed and predictions
 video_placeholder = st.empty()
@@ -254,7 +255,7 @@ if st.session_state.camera_running:
                         cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 180, 0), 2)
 
             # Speak the prediction if it's a new one
-            speak_prediction(st.session_state.prediction)
+            speak_prediction(st.session_state.prediction,key=str(st.session_state.prediction))
 
         # Display in Streamlit with modern styling
         with video_placeholder.container():
