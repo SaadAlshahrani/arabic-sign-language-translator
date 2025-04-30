@@ -169,8 +169,12 @@ if selected == "ℹ️ About":
     st.markdown("""
 
     ### 🚦 Limitations:
-    Throughout the development of this project, we encountered several challenges. One of the primary obstacles was the lack of a publicly available dataset for Saudi Sign Language. Additionally, the dataset we used was large and difficult to manage, and its quality negatively impacted the model's accuracy. We also faced limitations in terms of time and resources, which restricted our ability to further refine the project. Despite these challenges, the experience has been highly educational, and we hope to build on this foundation and enhance the project in the future.
-
+     - Lack of Dataset: One of the primary obstacles was the lack of a publicly available dataset for Saudi Sign Language.
+     - Large and Difficult Dataset: The dataset we used was large and difficult to manage, which added complexity to the project.
+     - Impact on Model Accuracy: The quality of the dataset negatively impacted the model’s accuracy, limiting its performance.
+     - Time and Resource Limitations: We faced challenges in terms of time and resources, which restricted our ability to refine and improve the project further.
+     - Educational Experience: Despite these challenges, the experience has been highly educational.
+     - Future Enhancements: We hope to build on this foundation and enhance the project in the future.
     """)
 
     st.markdown("---")
