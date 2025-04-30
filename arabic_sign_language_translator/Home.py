@@ -67,12 +67,41 @@ if selected == "ℹ️ About":
     st.title("🤖 Real-Time Arabic Sign Language Translator")
     st.markdown("---")
 
+
+
     st.markdown("""
 
     This project builds a **real-time Arabic Sign Language translator** that captures hand gestures using a camera and instantly translates them into **text or speech**.
     """)
 
     st.markdown("---")
+    st.title("""
+    📊 Statistics :
+    """)
+    st.markdown("""Statistic from APD shows percentage of disabled people in Saudi Arabia""")
+    st.image(
+        "Pictures/Pic1.png",
+        caption="Statistic from APD shows percentage of disabled people in Saudi Arabia",
+        use_container_width=True,
+        width=300
+    )
+    st.markdown("---")
+    st.markdown("""picture showing each disability by numbers in Saudi Arabia""")
+    st.image(
+        "Pictures/Pic2.png",
+        caption="picture showing each disability by numbers in Saudi Arabia",
+        use_container_width=True,
+        width=300
+    )
+    st.markdown("---")
+    st.markdown("""Our Focus is on the deaf community""")
+    st.image(
+        "Pictures/Pic3.png",
+        caption="Our Focus is on the deaf community",
+        use_container_width=True,
+        width=300
+    )
+
     st.markdown("""
     ### 🔎 Project Overview:
     The Arabic Sign Language Translation Project is an AI-powered initiative designed to facilitate real-time communication between the deaf community and the broader society. The system captures hand gestures using a standard camera, interprets them using deep learning models, and instantly converts them into spoken Arabic.

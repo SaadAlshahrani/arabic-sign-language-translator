@@ -1,3 +1,4 @@
+import time
 import streamlit as st
 import cv2
 import keras
@@ -136,12 +137,12 @@ with st.sidebar.expander("Settings ⚙️", expanded=True):
 
 with st.sidebar.expander("Choose Language 🪄", expanded=True):
     lang = st.selectbox("", options=langs)
-    speak = st.button("Speak it out!" , key="speak", use_container_width=True)
+    speak = st.button("Choose" , key="speak", use_container_width=True)
     st.sidebar.markdown("---")
 
-with st.sidebar.expander("Text to Speech", expanded=True):
-    text = st.text_input("Choose a text to speak out:")
-    st.sidebar.markdown("---")
+# with st.sidebar.expander("Text to Speech", expanded=True):
+#     text = st.text_input("Choose a text to speak out:")
+#     st.sidebar.markdown("---")
 
     st.sidebar.markdown("""
         <div style="font-size: 18px; line-height: 1.6; margin-bottom: 20px;">
@@ -199,6 +200,7 @@ if 'camera_running' not in st.session_state:
     st.session_state.camera_running = False
     st.session_state.prediction = None
     st.session_state.confidence = None
+    st.session_state.last_prediction = None
     st.session_state.frame_buffer = deque(maxlen=max_frames)
 
 col1, col2 = st.columns(2)
@@ -215,10 +217,13 @@ with col2:
         st.session_state.camera_running = False
         st.write("Camera is OFF")
 
+st.markdown("---")
 
-def speak_prediction(prediction, lang='en', key="1"):
-    text_to_speech(text=prediction, language=lang,key=key+str(np.random.randint(10000000))
-                   )
+def speak_prediction(prediction, lang='ar'):
+    # Generate a unique key using the current time to avoid duplicates
+    if prediction != st.session_state.last_prediction:
+        text_to_speech(text=prediction, language=lang, key=f"tts_{prediction}_{lang}_{int(time.time())}")
+        st.session_state.last_prediction = prediction  # Update the last prediction
 
 # Main logic to process webcam feed and predictions
 video_placeholder = st.empty()
@@ -256,6 +261,8 @@ if st.session_state.camera_running:
 
         #     # Speak the prediction if it's a new one
         #     speak_prediction(st.session_state.prediction,key=str(st.session_state.prediction))
+
+            speak_prediction(st.session_state.prediction)
 
         # Display in Streamlit with modern styling
         with video_placeholder.container():
@@ -311,19 +318,9 @@ st.write(
     """
 )
 
-# Features section
-st.header("Features")
-st.write(
-    """
-    - **Real-time Translation**: Translate Arabic sign language gestures into text or speech instantly.
-    - **User-Friendly Interface**: Simple and intuitive design for ease of use.
-    - **Customizable Options**: Adjust settings to suit your preferences.
-    """
-)
-
 # Call to action
 st.header("Get Started")
-st.write("Click on the **Translator** tab in the sidebar to begin translating Arabic sign language.")
+st.write("Click on the **Start Camera** button to begin translating Arabic sign language.")
 
 # Footer
 st.markdown("---")
