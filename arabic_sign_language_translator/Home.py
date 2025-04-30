@@ -4,7 +4,7 @@ import time
 
 st.set_page_config(
     page_title="ASLT",
-    page_icon="🚀",
+    page_icon="🤖",
     layout="wide"
     )
 
@@ -27,6 +27,18 @@ st.markdown("""
         }
     </style>
     """, unsafe_allow_html=True)
+
+
+st.sidebar.markdown(
+    "<h1 class = 'SideBar' style='color:orange; font-size:70px;'>ASLT</h1>",
+    unsafe_allow_html=True
+)
+
+st.sidebar.markdown("----")
+
+search_term = st.sidebar.text_input("Search", "")
+if search_term:
+    st.write(f"Searching for: {search_term}")
 
 # Fancy horizontal menu
 selected = option_menu(
@@ -58,22 +70,86 @@ if selected == "ℹ️ About":
     st.markdown("""
 
     This project builds a **real-time Arabic Sign Language translator** that captures hand gestures using a camera and instantly translates them into **text or speech**.
+    """)
+
+    st.markdown("---")
+    st.markdown("""
+    ### 🔎 Project Overview:
+    The Arabic Sign Language Translation Project is an AI-powered initiative designed to facilitate real-time communication between the deaf community and the broader society. The system captures hand gestures using a standard camera, interprets them using deep learning models, and instantly converts them into spoken Arabic.
+
+    By combining computer vision, convolutional and recurrent neural networks, and speech synthesis, the application provides a seamless and intuitive user experience. Our goal is to bridge the communication gap and foster inclusivity by making everyday interactions more accessible for individuals who use Arabic Sign Language.
+
+    This project represents a meaningful step toward leveraging technology to promote social equity, break down communication barriers, and support the empowerment of the deaf and hard-of-hearing community across the Arabic-speaking world.
+    """)
+
+    st.markdown("---")
+    st.markdown("""
+    ### ⚙️ How it Works:
+    1. **Capture**: The system uses a camera to capture hand gestures in real-time.
+    2. **Detect**: OpenCV detects and localizes hands in each video frame.
+    3. **Recognize**: A Convolutional Neural Network (CNN) extracts visual features from hand shapes and gestures.
+    4. **Translate**: A Recurrent Neural Network (RNN) understands sequences of gestures over time for dynamic sign translation.
+    5. **Output**: The recognized text is converted into clear and natural spoken audio using Text-To-Speech (TTS) technology.
+    6. **Deploy**: The system is containerized using Docker and hosted on Google Cloud Platform (GCP) for reliable cloud performance.
+    7. **Interface**: An interactive web interface is built using Streamlit for real-time use.
+
+    """)
+
+    st.markdown("---")
+    # Features Section
+    st.markdown("""
+    ### 🔥 Features
+    - **User-Friendly Interface**: Easy-to-use web interface for seamless interaction.
+
+    - **Scalable**: Deployed on GCP for reliable performance and scalability.
+    - **Cross-Platform**: Accessible from any device with a web browser.
+
+    - **Educational Resource**: Aims to raise awareness and understanding of Arabic sign language.
+
+    - **Future Enhancements**: Plans to integrate additional features like gesture recognition for different sign languages and dialects.
+    - **Real-Time Feedback**: Provides users with instant feedback on their gestures to improve learning.
+
+    - **Gesture Library**: A comprehensive library of gestures and their meanings for reference.
+    - **Offline Mode**: Future plans to enable offline functionality for areas with limited internet access.
+
+    - **Educational Tool**: Aims to be a valuable resource for learning Arabic sign language.
+    - **User-Centric Design**: Focused on creating a user-friendly experience for both deaf individuals and the wider community.
+
+    - **Continuous Improvement**: Committed to ongoing development and refinement of the system based on user feedback and technological advancements.
 
 
-    ### 🔥 How it Works:
+    """)
+    st.markdown("---")
+    st.markdown("""
+    ### 🧠 Technologies:
 
-    - 🎯 **YOLO**: Detects and localizes hands in each video frame with high speed and precision.
-    - 🧠 **CNN**: Extracts detailed features from hand shapes and movements.
+    - 📷 **OpenCV**: Detects and localizes hands in each video frame with high speed and precision.
+    - 🧠 **CNN**: Extracts visual features from hand shapes and gestures with high precision.
     - 🔄 **RNN (LSTM/GRU)**: Understands sequences of gestures over time for dynamic sign translation.
-    - 🤖 **AI Pipeline**: Combines models to deliver fast, accurate, and natural translations.
+    - 🤖 **TensorFlow**: Powers the deep learning pipeline for fast and accurate predictions.
+    - 💬 **Text-To-Speech (TTS)**: Converts recognized text into clear and natural spoken audio.
+    - 🐳 **Docker**: Ensures consistent deployment of the system across any environment.
+    - ☁️ **Google Cloud Platform (GCP)**: Hosts and scales the AI models for reliable cloud performance.
+    - 🌐 **Streamlit**: Delivers an interactive and user-friendly web interface for real-time use.
 
-    ---
 
+
+    """)
+    st.markdown("---")
+    st.markdown("""
+
+    ### 🚦 Limitations:
+    Throughout the development of this project, we encountered several challenges. One of the primary obstacles was the lack of a publicly available dataset for Saudi Sign Language. Additionally, the dataset we used was large and difficult to manage, and its quality negatively impacted the model's accuracy. We also faced limitations in terms of time and resources, which restricted our ability to further refine the project. Despite these challenges, the experience has been highly educational, and we hope to build on this foundation and enhance the project in the future.
+
+    """)
+
+    st.markdown("---")
+    st.markdown("""
     ### 🌟 Goal:
     > Bridge communication between deaf individuals and the wider community using cutting-edge AI.
 
     """, unsafe_allow_html=True)
-    
+
 
     # search_term = st.sidebar.text_input("Search", "")
     # if search_term:
@@ -82,10 +158,8 @@ if selected == "ℹ️ About":
     # st.snow()
     # st.toast("Welcome to my fancy multi-page app! 🎉", icon="🎈")
 
-    st.sidebar.markdown(
-    "<h1 class = 'SideBar' style='color:orange; font-size:70px;'>ASLT</h1>",
-    unsafe_allow_html=True
-)
+
+
 
 #--------------------------------Projects----------------------------------
 # elif selected == "💻 Projects":
@@ -96,21 +170,19 @@ if selected == "ℹ️ About":
 #     st.write("Here are some cool things I'm working on:")
 #--------------------------------Contact----------------------------------
 elif selected == "👥 Team Members":
+
+
     st.title("The People Behind the Project")
     st.markdown("---")
     st.title("Our Team:")
     st.header("Fayadh ")
-    st.sidebar.markdown(
-    "<h1 class = 'SideBar' style='color:orange; font-size:70px;'>ASLT</h1>",
-    unsafe_allow_html=True
-    )
     col1, col2 ,col3 , col4 = st.columns(4)
     #----------------------------------------Fayadh-----------------------------
     with col1:
         st.markdown(
             """
             <div style="display: flex; align-items: flex-start; justify-content: flex-start;">
-                <a href="https://www.linkedin.com/in/fayadh3" target="_blank" style="margin-right: 10px;">
+                <a href="https://www.linkedin.com/in/fayadh3"  target="_blank" style="margin-right: 10px;">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" style="width:50px;height:50px;">
                 </a>
             </div>
