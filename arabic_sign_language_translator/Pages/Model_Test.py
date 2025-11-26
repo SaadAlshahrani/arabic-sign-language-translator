@@ -217,14 +217,30 @@ with col2:
 
 
 def speak_prediction(prediction, lang='en'):
-    text_to_speech(text=prediction, language=lang)
+    # Initialize counter if not exists
+    if "tts_counter" not in st.session_state:
+        st.session_state.tts_counter = 0
+
+    # Increase counter each time TTS is called
+    st.session_state.tts_counter += 1
+
+    # Unique key each call
+    unique_key = f"tts_{st.session_state.tts_counter}"
+
+    # Call TTS with unique key
+    text_to_speech(
+        text=prediction,
+        language=lang,
+        key=unique_key
+    )
+
 
 # Main logic to process webcam feed and predictions
 video_placeholder = st.empty()
 prediction_placeholder = st.empty()
 
 if st.session_state.camera_running:
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(1)
     frame_count = 0
     while st.session_state.camera_running:
         ret, frame = cap.read()
